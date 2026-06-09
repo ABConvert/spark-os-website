@@ -115,12 +115,42 @@ docker build -t spark-os-website:local .
 
 ## Kubernetes deploy
 
-Apply the manifests:
+### Production (manual)
 
 ```bash
-kubectl apply -f k8s/
+kubectl apply -k k8s/overlays/production
 kubectl -n abconvert rollout status deployment/spark-os-website
 ```
+
+### Staging (manual)
+
+```bash
+kubectl apply -k k8s/overlays/staging
+kubectl -n abconvert rollout status deployment/spark-os-website
+```
+
+## CI/CD
+
+GitHub Actions is configured to:
+
+- run `npm ci` + `npm run build` on every pull request
+- build and push a GHCR image on every push to `main`
+- auto-deploy **staging** on every push to `main`
+- allow manual **staging** or **production** deploys through `workflow_dispatch`
+
+Required GitHub repository secrets:
+
+- `KUBECONFIG_STAGING`
+- `KUBECONFIG_PRODUCTION`
+
+Staging ingress hostname is currently configured as:
+
+- `spark-os-staging.abconvert.io`
+
+Production ingress hostnames are:
+
+- `spark-os.io`
+- `www.spark-os.io`
 
 ## Publishing this repository to GitHub
 

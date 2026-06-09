@@ -5,7 +5,7 @@ metadata:
   namespace: abconvert
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-production
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"   # Cloudflare fronts TLS
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/proxy-body-size: 1m
 spec:
   ingressClassName: nginx
