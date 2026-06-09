@@ -1,0 +1,15 @@
+node_modules
+dist
+.git
+.gitignore
+.env
+.env.*
+!.env.example
+*.swp
+.reference
+k8s
+supabase
+docs
+README.md
+*.md
+.DS_Store

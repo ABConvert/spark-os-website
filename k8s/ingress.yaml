@@ -1,0 +1,38 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: spark-os-website
+  namespace: abconvert
+  annotations:
+    # Matches the convention used by abconvert-app-v1 / abconvert-mcp.
+    cert-manager.io/issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"   # Cloudflare fronts TLS
+    nginx.ingress.kubernetes.io/proxy-body-size: 1m
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: spark-os.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: spark-os-website
+                port:
+                  number: 80
+    - host: www.spark-os.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: spark-os-website
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - spark-os.io
+        - www.spark-os.io
+      secretName: spark-os-tls

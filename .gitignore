@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.vite/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Secret SQL / infra files
+supabase/set_slack_webhook.sql
+*kubeconfig*.yaml
+
+# Design references / local artifacts
+.reference/
+.playwright-mcp/
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Coverage / test output
+coverage/
+
+# Local agent/tool config
+.claude/settings.local.json
