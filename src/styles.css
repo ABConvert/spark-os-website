@@ -409,7 +409,7 @@ html, body {
   color: var(--color-text-tertiary); cursor: pointer;
 }
 .lp-modal-close:hover { background: var(--color-surface-raised); color: var(--color-text-primary); }
-.lp-modal-head { margin-bottom: 22px; padding-right: 28px; }
+.lp-modal-head { margin-bottom: 22px; padding-right: 0; text-align: center; }
 .lp-modal-form { display: flex; flex-direction: column; gap: 16px; }
 .lp-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .lp-field { display: flex; flex-direction: column; gap: 6px; }
@@ -423,7 +423,15 @@ html, body {
   padding-right: 34px; cursor: pointer;
 }
 .lp-textarea { height: auto !important; min-height: 88px; padding: 12px 14px !important; line-height: 1.5; resize: vertical; }
-.lp-modal-submit { height: 48px; font-size: 14.5px; margin-top: 4px; }
+.lp-modal-submit {
+  height: 48px;
+  font-size: 14.5px;
+  margin-top: 4px;
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+  width: min(100%, 320px);
+}
 .lp-modal-done { text-align: center; padding: 14px 6px 6px; }
 .lp-modal-check {
   width: 54px; height: 54px; margin: 0 auto 18px;
