@@ -21,6 +21,8 @@ RUN printf 'VITE_SUPABASE_URL=%s\nVITE_SUPABASE_PUBLISHABLE_KEY=%s\n' \
 
 # ── Runtime stage ──────────────────────────────────────────────────────────
 FROM nginx:1.27-alpine AS runtime
+# Links the GHCR package to the repo so Actions pushes are authorized.
+LABEL org.opencontainers.image.source=https://github.com/ABConvert/spark-os-website
 RUN rm -rf /usr/share/nginx/html/*
 COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
