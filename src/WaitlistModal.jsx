@@ -109,9 +109,9 @@ function WaitlistModal({ prefillEmail, onClose }) {
                 <path d="M20 6 9 17l-5-5" />
               </svg>
             </div>
-            <h3 className="lp-h3-big" style={{ marginBottom: 8 }}>You're on the list.</h3>
+            <h3 className="lp-h3-big" style={{ marginBottom: 8 }}>Request received.</h3>
             <p className="text-body" style={{ maxWidth: 360, margin: "0 auto" }}>
-              Thanks{form.name ? `, ${form.name.split(" ")[0]}` : ""} — we'll reach out about early access soon.
+              Thanks{form.name ? `, ${form.name.split(" ")[0]}` : ""} — we'll reach out to schedule your demo.
             </p>
             <button className="btn btn-primary" style={{ marginTop: 22, padding: "0 20px", height: 44 }} onClick={onClose}>
               Done
@@ -120,12 +120,12 @@ function WaitlistModal({ prefillEmail, onClose }) {
         ) : (
           <>
             <div className="lp-modal-head">
-              <span className="text-mono-label" style={{ color: "var(--color-lime)" }}>Join the waitlist</span>
+              <span className="text-mono-label" style={{ color: "var(--color-lime)" }}>Book a demo</span>
               <h3 id="waitlist-modal-title" className="lp-h3-big" style={{ marginTop: 8 }}>
                 Tell us about your company
               </h3>
               <p className="text-body-sm" style={{ marginTop: 6 }}>
-                Early access for SaaS &amp; ecommerce teams. Takes 20 seconds.
+                A 30-minute walkthrough on your workflows. Takes 20 seconds to request.
               </p>
             </div>
 
@@ -162,10 +162,10 @@ function WaitlistModal({ prefillEmail, onClose }) {
               )}
 
               <button type="submit" className="btn btn-primary lp-modal-submit" disabled={state === "submitting"}>
-                {state === "submitting" ? "Joining…" : "Join the waitlist"}
+                {state === "submitting" ? "Sending…" : "Request a demo"}
               </button>
               <p className="text-body-sm" style={{ textAlign: "center", color: "var(--color-text-muted)" }}>
-                No spam. We'll only email you about early access.
+                No spam. We'll only email you about your demo.
               </p>
             </form>
           </>
